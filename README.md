@@ -1,5 +1,9 @@
 # Soundbar placement checker｜Soundbar 擺位檢查器
 
+由 [Elechid 音立](https://elechid.com/) 製作及維護。
+
+Created and maintained by [Elechid 音立](https://elechid.com/en/).
+
 [English](https://elechid.github.io/soundbar-placement-checker/) · [繁體中文](https://elechid.github.io/soundbar-placement-checker/?lang=zh)
 
 Negative values show a shortfall. When the sensor has no height clearance, test the remote from your normal seat. Follow the speaker manual for clearance and driver placement.
