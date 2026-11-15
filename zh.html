@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="先量畫面底至櫃面的空間，以及櫃面的可用深度和闊度，再預留插頭和說明書要求的空間。">
+<title>Soundbar 擺位檢查器 | Elechid 音立</title>
+<style>
+:root { color: #152624; background: #edf4ef; font: 16px/1.55 system-ui,sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 60rem; margin: auto; padding: clamp(1rem,5vw,3.5rem); }
+header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+h1 { font-size: clamp(2rem,6vw,3.5rem); line-height: 1.08; letter-spacing: -.03em; margin-bottom: .4em; }
+p { max-width: 66ch; }
+form, .results { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,13rem),1fr)); gap: .8rem; margin-block: 1.5rem; }
+label, .results div { display: block; padding: .9rem 1rem; background: #fff; border: 1px solid #bbcfc4; border-radius: .75rem; }
+label { font-weight: 600; }
+input, button { font: inherit; color: inherit; border: 1px solid #58766a; border-radius: .4rem; background: #fff; padding: .45rem .65rem; }
+input { display: block; margin-top: .4rem; width: 100%; }
+button { cursor: pointer; }
+a { color: #075238; text-underline-offset: .17em; }
+output { display: block; font-size: 1.7rem; font-weight: 750; overflow-wrap: anywhere; }
+#error { color: #a42125; }
+
+nav { display:flex; flex-wrap:wrap; gap:.5rem 1rem; margin-top:1rem; }
+nav a[aria-current] { font-weight:750; }
+output { font-size:1.35rem; }
+textarea { width:100%; min-height:13rem; padding:.75rem; font:inherit; }
+form:empty,.results:empty { display:none; }
+</style>
+<script type="module" src="./app.mjs"></script>
+<link rel="canonical" href="https://elechid.github.io/soundbar-placement-checker/zh.html">
+<link rel="alternate" hreflang="en" href="https://elechid.github.io/soundbar-placement-checker/">
+<link rel="alternate" hreflang="zh-Hant" href="https://elechid.github.io/soundbar-placement-checker/zh.html">
+<style>html[lang=en] [data-locale=zh-Hant],html[lang=zh-Hant] [data-locale=en]{display:none}.tool-answer{margin-block:1.4rem;padding:1rem;background:white;border:1px solid #bbcfc4;border-radius:.75rem}.tool-answer h2{margin-top:0}</style>
+</head>
+<body><main>
+<header><a id="brand" href="https://elechid.com/">Elechid 音立</a><button type="button" id="language" lang="en">English</button></header>
+<h1 id="title">Soundbar 擺位檢查器</h1>
+<p id="intro"></p>
+<form></form>
+<p id="error" role="status" hidden></p>
+<section class="results" aria-live="polite"></section>
+<section id="checklist" hidden>
+<label id="list-label" for="measurements">Measurement record</label>
+<textarea id="measurements" readonly></textarea>
+<button id="copy" type="button">Copy checklist</button>
+<p id="copy-status" role="status"></p>
+</section>
+<p id="note"></p>
+<section class="tool-answer" data-locale="zh-Hant" aria-labelledby="answer"><h2 id="answer">Soundbar 放喺電視下面會唔會遮住畫面？</h2><p>先量畫面底至櫃面的空間，以及櫃面的可用深度和闊度，再預留插頭和說明書要求的空間。</p><p><strong>例子</strong> Soundbar 高 60 毫米，畫面下方有 65 毫米，剩 5 毫米。若機身深 100 毫米，加插頭預留 20 毫米，便用盡 120 毫米的櫃面深度。</p><p><strong>適用限制</strong> 在平時坐的位置實試遙控接收，並核對散熱及向上發聲單元所需的空間。</p></section><section class="tool-answer" data-locale="en"><h2>Will a soundbar fit below my TV?</h2><p>Measure the gap below the picture and the usable shelf depth and width. Allow room for cables and any clearance specified in the manual.</p><p><strong>Worked example</strong> A 60 mm bar under a 65 mm gap leaves 5 mm. A 100 mm bar depth plus 20 mm for plugs uses all of a 120 mm shelf depth.</p><p><strong>Limits</strong> Check the remote sensor from your normal seat, ventilation and overhead clearance for upward-firing speakers.</p></section>
+<noscript>JavaScript is required. 此工具需要 JavaScript。</noscript>
+<p><a id="guide" href="https://elechid.com/blogs/news/soundbar-placement-small-flat-hong-kong">閱讀 Elechid 選購及安裝指南</a> · <a id="source" href="https://github.com/Elechid/soundbar-placement-checker">Source code</a></p>
+<nav aria-label="Language"><a href="./" hreflang="en" lang="en">English</a><a href="./zh.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></nav>
+</main></body></html>
