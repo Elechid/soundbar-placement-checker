@@ -30,6 +30,7 @@ textarea { width:100%; min-height:13rem; padding:.75rem; font:inherit; }
 form:empty,.results:empty { display:none; }
 </style>
 <script type="module" src="./app.mjs?v=20261115-bilingual"></script>
+<script type="module" src="./cabinet.mjs"></script>
 <link rel="canonical" href="https://elechid.github.io/soundbar-placement-checker/zh.html">
 <link rel="alternate" hreflang="en" href="https://elechid.github.io/soundbar-placement-checker/">
 <link rel="alternate" hreflang="zh-Hant" href="https://elechid.github.io/soundbar-placement-checker/zh.html">
@@ -49,6 +50,37 @@ form:empty,.results:empty { display:none; }
 <p id="copy-status" role="status"></p>
 </section>
 <p id="note"></p>
+<section class="tool-answer" aria-labelledby="cabinet-title">
+<h2 id="cabinet-title"><span data-locale="en">TV cabinet + Soundbar fit</span><span data-locale="zh-Hant">電視櫃＋Soundbar 擺位</span></h2>
+<p data-locale="en"><strong>45-inch cabinet and Samsung QA55QN80HAKXXT.</strong> A 1,143 mm cabinet is 81 mm narrower than the 1,224 mm TV body. Centred, the TV overhangs about 40.5 mm each side. The 1,034.6 × 218 mm standard feet fit the example 1,143 × 350 mm cabinet on paper. Samsung lists a narrower 250 × 218 mm setting. Confirm the foot position on your unit.</p>
+<p data-locale="zh-Hant"><strong>45 吋櫃配 Samsung QA55QN80HAKXXT。</strong>櫃面闊 1,143 毫米，比機身窄 81 毫米。置中時機身每邊突出約 40.5 毫米。以 1,143 × 350 毫米的示例櫃面計，1,034.6 × 218 毫米的標準腳架可放入。三星另列 250 × 218 毫米的窄腳位，請核對實機腳架位置。</p>
+<p data-locale="en">The starting cabinet depth and Soundbar dimensions are examples. Measure from the front edge of the cabinet to the nearest foot or obstruction across the bar’s full width. Measure up to the visible picture with the TV installed. Keep these fields blank until measured. Leave room behind the TV for cables and ventilation, and check cabinet load rating, stability and the remote sensor.</p>
+<p data-locale="zh-Hant">櫃深和 Soundbar 預填尺寸只作示例。請在 Soundbar 全闊範圍內，量櫃前沿到最近腳架或障礙物的距離，並在裝好電視後量櫃面至可見畫面底部。未量的欄位可留空。另請核對櫃體承重、穩定性、遙控接收，以及電視後方線材和散熱空間。</p>
+<p><a href="https://www.samsung.com/th/tvs/neo-qled-tv/qn80h-55-inch-neo-qled-4k-mini-led-smart-tv-qa55qn80hakxxt/"><span data-locale="en">Samsung specifications</span><span data-locale="zh-Hant">三星官方規格</span></a></p>
+<form id="cabinet-fit">
+<label><span data-locale="en">Usable cabinet width (mm)</span><span data-locale="zh-Hant">櫃面可用闊度（毫米）</span><input name="cabinetWidth" type="number" min="0.01" step="any" required value="1143"></label>
+<label><span data-locale="en">Usable cabinet depth (mm)</span><span data-locale="zh-Hant">櫃面可用深度（毫米）</span><input name="cabinetDepth" type="number" min="0.01" step="any" required value="350"></label>
+<label><span data-locale="en">TV body width (mm)</span><span data-locale="zh-Hant">電視機身闊度（毫米）</span><input name="tvWidth" type="number" min="0.01" step="any" required value="1224"></label>
+<label><span data-locale="en">Outside width of TV feet (mm)</span><span data-locale="zh-Hant">腳架外沿闊度（毫米）</span><input name="standWidth" type="number" min="0.01" step="any" required value="1034.6"></label>
+<label><span data-locale="en">Depth of TV feet (mm)</span><span data-locale="zh-Hant">腳架深度（毫米）</span><input name="standDepth" type="number" min="0.01" step="any" required value="218"></label>
+<label><span data-locale="en">Clear depth in front of feet (mm)</span><span data-locale="zh-Hant">腳架前方可用深度（毫米）</span><input name="frontDepth" type="number" min="0" step="any" placeholder="—"></label>
+<label><span data-locale="en">Soundbar width (mm)</span><span data-locale="zh-Hant">Soundbar 闊度（毫米）</span><input name="barWidth" type="number" min="0.01" step="any" required value="900"></label>
+<label><span data-locale="en">Soundbar depth (mm)</span><span data-locale="zh-Hant">Soundbar 深度（毫米）</span><input name="barDepth" type="number" min="0.01" step="any" required value="100"></label>
+<label><span data-locale="en">Soundbar height (mm)</span><span data-locale="zh-Hant">Soundbar 高度（毫米）</span><input name="barHeight" type="number" min="0.01" step="any" required value="60"></label>
+<label><span data-locale="en">Cabinet to bottom of visible picture (mm)</span><span data-locale="zh-Hant">櫃面至可見畫面底部（毫米）</span><input name="pictureGap" type="number" min="0" step="any" placeholder="—"></label>
+<label><span data-locale="en">Depth allowance for Soundbar cables (mm)</span><span data-locale="zh-Hant">Soundbar 線材預留深度（毫米）</span><input name="cable" type="number" min="0" step="any" required value="20"></label>
+</form>
+<p><span data-locale="en">Negative numbers show a shortfall. Zero means no margin. Body overhang and foot support are checked separately.</span><span data-locale="zh-Hant">負數代表尺寸不足，零代表沒有餘位。機身突出和腳架承托分開判斷。</span></p>
+<div id="cabinet-results" class="results" aria-live="polite">
+<div><span data-locale="en">Width against TV body</span><span data-locale="zh-Hant">櫃面對機身闊度</span><output></output></div>
+<div><span data-locale="en">Width left after TV feet</span><span data-locale="zh-Hant">腳架闊度餘位</span><output></output></div>
+<div><span data-locale="en">Depth left after TV feet</span><span data-locale="zh-Hant">腳架深度餘位</span><output></output></div>
+<div><span data-locale="en">Soundbar depth left after cables</span><span data-locale="zh-Hant">Soundbar 扣除線材後餘深</span><output></output></div>
+<div><span data-locale="en">Width left beside Soundbar</span><span data-locale="zh-Hant">Soundbar 闊度餘位</span><output></output></div>
+<div><span data-locale="en">Height below picture after Soundbar</span><span data-locale="zh-Hant">Soundbar 上方至畫面餘高</span><output></output></div>
+</div>
+</section>
+
 <section class="tool-answer" data-locale="zh-Hant" aria-labelledby="answer"><h2 id="answer">Soundbar 放喺電視下面會唔會遮住畫面？</h2><p>先量畫面底至櫃面的空間，以及櫃面的可用深度和闊度，再預留插頭和說明書要求的空間。</p><p><strong>例子</strong> Soundbar 高 60 毫米，畫面下方有 65 毫米，剩 5 毫米。若機身深 100 毫米，加插頭預留 20 毫米，便用盡 120 毫米的櫃面深度。</p><p><strong>適用限制</strong> 在平時坐的位置實試遙控接收，並核對散熱及向上發聲單元所需的空間。</p></section><section class="tool-answer" data-locale="en"><h2>Will a soundbar fit below my TV?</h2><p>Measure the gap below the picture and the usable shelf depth and width. Allow room for cables and any clearance specified in the manual.</p><p><strong>Worked example</strong> A 60 mm bar under a 65 mm gap leaves 5 mm. A 100 mm bar depth plus 20 mm for plugs uses all of a 120 mm shelf depth.</p><p><strong>Limits</strong> Check the remote sensor from your normal seat, ventilation and overhead clearance for upward-firing speakers.</p></section>
 <noscript>JavaScript is required. 此工具需要 JavaScript。</noscript>
 <p><a id="guide" href="https://elechid.com/blogs/news/soundbar-placement-small-flat-hong-kong">閱讀 Elechid 選購及安裝指南</a> · <a id="source" href="https://github.com/Elechid/soundbar-placement-checker">Source code</a></p>
